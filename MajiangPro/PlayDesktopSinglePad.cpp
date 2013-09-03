@@ -173,11 +173,13 @@ CCPoint PlayDesktopSinglePad::PositionOfCoord(CCPoint p)
 
 void PlayDesktopSinglePad::SelectMajiong(MaJiongSprite *mj)
 {
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("select.mp3");
     if (tempSelectMajiong && mj) {
         if (tempSelectMajiong->isEqualTo(mj) && tempSelectMajiong != mj) {//1 在这个条件里面判断两麻将是否能联通
             //前后选择的两个麻将花色与大小相同
             vector<CCPoint> *linkPath = link(tempSelectMajiong->OringCoord, mj->OringCoord);
             if (linkPath != NULL) {//如果有路径可以连通
+                CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("disappear.mp3");
                 //1绘制路径
                 MaJiongDrawLinkPath(linkPath);
                 //2消去两麻将
@@ -211,6 +213,7 @@ void PlayDesktopSinglePad::GameOver()
     GameLayerScene *gameover = GameOverSceneSG::createWithScore(Player1->getScore());
     gameover->setPlayAgainCategary(DesktopLayerSG);
     CCDirector::sharedDirector()->replaceScene(gameover);
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("gameover.mp3");
 }
 
 void PlayDesktopSinglePad::setAllMJVisible()

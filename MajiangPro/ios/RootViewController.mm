@@ -41,7 +41,7 @@
     [super viewDidAppear:animated];
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"noiad"]) {
         [self loadAdmobView];
-        [self loadIADView];
+//        [self loadIADView];
     }
 }
 
@@ -51,7 +51,7 @@
     NSInteger month= [components month];
     NSInteger year= [components year];
     
-    if (year == 2013 && month <= 8) { //2013-08不显示广告
+    if (year == 2013 && month <= 9) { //2013-08不显示广告
         return;
     }
     
