@@ -12,6 +12,7 @@
 #include "MenuScene.h"
 #include "MenuScenePad.h"
 #include "DesktopScene.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -59,10 +60,14 @@ bool AppDelegate::applicationDidFinishLaunching()
         //Phone
         pScene = MenuScene::scene();
     }
-
+    
+    //预加载音乐音效
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->preloadEffect("select.mp3");
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->preloadEffect("disappear.mp3");
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->preloadEffect("gameover.mp3");
     // run
     pDirector->runWithScene(pScene);
-
+    
     return true;
 }
 

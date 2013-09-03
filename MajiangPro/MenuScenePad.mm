@@ -10,6 +10,7 @@
 #include "SimpleAudioEngine.h"
 #import "IOSHelper.h"
 #import "WeiboShareManager.h"
+#include "CocosDenshion.h"
 using namespace cocos2d;
 using namespace CocosDenshion;
 using namespace cocos2d::extension;
@@ -140,6 +141,7 @@ void MenuScenePad::menuSingleCallback(CCObject* pSender)
 {
     CCScene *desktop = DesktopScene::createWithCategary(DesktopLayerSG);
     CCDirector::sharedDirector()->pushScene(CCTransitionFlipAngular::create(1, desktop));
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("select.mp3");
 }
 
 void MenuScenePad::menuNoiadCallback(CCObject* pSender)
