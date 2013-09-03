@@ -24,11 +24,11 @@ public:
     static cocos2d::CCScene* scene();
     
     // a selector callback
-    void menuCloseCallback(CCObject* pSender);
     void menuPVPCallback(CCObject* pSender);
     void menuPVECallback(CCObject* pSender);
-    void menuHelpCallback(CCObject* pSender);
-    
+    void menuSingleCallback(CCObject* pSender);
+    void menuSinaShareCallback(CCObject* pSender);
+    void menuTwitterShareCallback(CCObject* pSender);
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(MenuScene);
 };
