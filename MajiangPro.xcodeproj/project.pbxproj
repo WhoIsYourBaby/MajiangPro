@@ -282,8 +282,6 @@
 		B249013017D58F6A00507080 /* disappear.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B249012D17D58F6A00507080 /* disappear.mp3 */; };
 		B249013117D58F6A00507080 /* gameover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B249012E17D58F6A00507080 /* gameover.mp3 */; };
 		B249013217D58F6A00507080 /* select.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B249012F17D58F6A00507080 /* select.mp3 */; };
-		B249013517D597C200507080 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B249013717D597C200507080 /* Localizable.strings */; };
-		B249013A17D5983C00507080 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B249013C17D5983C00507080 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -838,12 +836,6 @@
 		B249012D17D58F6A00507080 /* disappear.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = disappear.mp3; path = Resources/disappear.mp3; sourceTree = "<group>"; };
 		B249012E17D58F6A00507080 /* gameover.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = gameover.mp3; path = Resources/gameover.mp3; sourceTree = "<group>"; };
 		B249012F17D58F6A00507080 /* select.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = select.mp3; path = Resources/select.mp3; sourceTree = "<group>"; };
-		B249013617D597C200507080 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		B249013B17D5983C00507080 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B249013D17D5986800507080 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		B249013E17D5986800507080 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		B249013F17D5989900507080 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		B249014017D5989900507080 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -983,8 +975,6 @@
 				23064B6217BDA86400F698D7 /* Icon@2x.png */,
 				23064B6417BDA86400F698D7 /* iTunesArtwork */,
 				23064B6617BDA86400F698D7 /* Info.plist */,
-				B249013717D597C200507080 /* Localizable.strings */,
-				B249013C17D5983C00507080 /* InfoPlist.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -2006,8 +1996,6 @@
 				B249013017D58F6A00507080 /* disappear.mp3 in Resources */,
 				B249013117D58F6A00507080 /* gameover.mp3 in Resources */,
 				B249013217D58F6A00507080 /* select.mp3 in Resources */,
-				B249013517D597C200507080 /* Localizable.strings in Resources */,
-				B249013A17D5983C00507080 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2226,31 +2214,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		B249013717D597C200507080 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B249013617D597C200507080 /* en */,
-				B249013D17D5986800507080 /* zh-Hans */,
-				B249013F17D5989900507080 /* zh-Hant */,
-			);
-			name = Localizable.strings;
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		B249013C17D5983C00507080 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B249013B17D5983C00507080 /* en */,
-				B249013E17D5986800507080 /* zh-Hans */,
-				B249014017D5989900507080 /* zh-Hant */,
-			);
-			name = InfoPlist.strings;
-			path = Resources;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		23064DF217BDA86700F698D7 /* Debug */ = {
