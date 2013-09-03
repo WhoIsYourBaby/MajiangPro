@@ -10,7 +10,6 @@
 #include "SimpleAudioEngine.h"
 #import "IOSHelper.h"
 #import "WeiboShareManager.h"
-#include "CocosDenshion.h"
 using namespace cocos2d;
 using namespace CocosDenshion;
 using namespace cocos2d::extension;
@@ -129,25 +128,21 @@ void MenuScenePad::menuPVPCallback(CCObject* pSender)
 {
     CCScene *desktop = DesktopScene::createWithCategary(DesktopLayerPVP);
     CCDirector::sharedDirector()->pushScene(CCTransitionFlipAngular::create(1, desktop));
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("select.mp3");
 }
 
 void MenuScenePad::menuPVECallback(CCObject* pSender)
 {//"vs bot" select
     CCScene *desktop = DesktopScene::createWithCategary(DesktopLayerPVE);
     CCDirector::sharedDirector()->pushScene(CCTransitionFlipAngular::create(1, desktop));
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("select.mp3");
 }
 
 void MenuScenePad::menuSingleCallback(CCObject* pSender)
 {
     CCScene *desktop = DesktopScene::createWithCategary(DesktopLayerSG);
     CCDirector::sharedDirector()->pushScene(CCTransitionFlipAngular::create(1, desktop));
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("select.mp3");
 }
 
 void MenuScenePad::menuNoiadCallback(CCObject* pSender)
 {
     [IOSHelper buyNoIad];
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("select.mp3");
 }

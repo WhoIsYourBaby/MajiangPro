@@ -279,9 +279,6 @@
 		2323774F17BDACDB0024492F /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 2323774B17BDACDB0024492F /* twitter.png */; };
 		2323775117BDACF00024492F /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 2323775017BDACF00024492F /* Fonts */; };
 		2323775317BDACF90024492F /* HD in Resources */ = {isa = PBXBuildFile; fileRef = 2323775217BDACF90024492F /* HD */; };
-		B249013017D58F6A00507080 /* disappear.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B249012D17D58F6A00507080 /* disappear.mp3 */; };
-		B249013117D58F6A00507080 /* gameover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B249012E17D58F6A00507080 /* gameover.mp3 */; };
-		B249013217D58F6A00507080 /* select.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B249012F17D58F6A00507080 /* select.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -833,9 +830,6 @@
 		2323774B17BDACDB0024492F /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = twitter.png; path = Resources/twitter.png; sourceTree = "<group>"; };
 		2323775017BDACF00024492F /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = Resources/Fonts; sourceTree = "<group>"; };
 		2323775217BDACF90024492F /* HD */ = {isa = PBXFileReference; lastKnownFileType = folder; name = HD; path = Resources/HD; sourceTree = "<group>"; };
-		B249012D17D58F6A00507080 /* disappear.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = disappear.mp3; path = Resources/disappear.mp3; sourceTree = "<group>"; };
-		B249012E17D58F6A00507080 /* gameover.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = gameover.mp3; path = Resources/gameover.mp3; sourceTree = "<group>"; };
-		B249012F17D58F6A00507080 /* select.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = select.mp3; path = Resources/select.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -924,12 +918,9 @@
 		23064B4F17BDA86400F698D7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2323775017BDACF00024492F /* Fonts */,
-				2323775217BDACF90024492F /* HD */,
-				B249012D17D58F6A00507080 /* disappear.mp3 */,
-				B249012E17D58F6A00507080 /* gameover.mp3 */,
-				B249012F17D58F6A00507080 /* select.mp3 */,
 				232376E717BDAC970024492F /* path.plist */,
+				2323775217BDACF90024492F /* HD */,
+				2323775017BDACF00024492F /* Fonts */,
 				2323774817BDACDB0024492F /* LargeAppIcon.png */,
 				2323774917BDACDB0024492F /* logo.png */,
 				2323774A17BDACDB0024492F /* logo@2x.png */,
@@ -1926,8 +1917,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				"zh-Hans",
-				"zh-Hant",
 			);
 			mainGroup = 23064B3217BDA86400F698D7;
 			productRefGroup = 23064B3C17BDA86400F698D7 /* Products */;
@@ -1993,9 +1982,6 @@
 				2323774F17BDACDB0024492F /* twitter.png in Resources */,
 				2323775117BDACF00024492F /* Fonts in Resources */,
 				2323775317BDACF90024492F /* HD in Resources */,
-				B249013017D58F6A00507080 /* disappear.mp3 in Resources */,
-				B249013117D58F6A00507080 /* gameover.mp3 in Resources */,
-				B249013217D58F6A00507080 /* select.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2278,8 +2264,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Gun Li (A665XQL5F4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gun Li (A665XQL5F4)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2298,8 +2284,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "0D2D8743-812D-41CA-8962-E2ED9C8B969C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0D2D8743-812D-41CA-8962-E2ED9C8B969C";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};

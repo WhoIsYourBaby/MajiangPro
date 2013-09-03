@@ -5,7 +5,6 @@
 #include "PlayerLayerFTF.h"
 #include <dispatch/dispatch.h>
 #include "GameOverScenePVP.h"
-#include "CocosDenshion.h"
 
 using namespace cocos2d;
 
@@ -136,7 +135,6 @@ void PlayDesktopLayerPad::randMaJiang()
 
 void PlayDesktopLayerPad::SelectMajiong(MaJiongSprite *mj)
 {
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("select.mp3");
     if (tempSelectMajiong && mj) {
         if (tempSelectMajiong->isEqualTo(mj) && tempSelectMajiong != mj) {//1 在这个条件里面判断两麻将是否能联通
             //前后选择的两个麻将花色与大小相同
@@ -165,10 +163,7 @@ void PlayDesktopLayerPad::SelectMajiong(MaJiongSprite *mj)
             tempSelectMajiong->Diselect();
             tempSelectMajiong = mj;
         }
-    } else {
-        
-        tempSelectMajiong = mj;
-    }
+    } else tempSelectMajiong = mj;
 }
 
 CCPoint PlayDesktopLayerPad::PositionOfCoord(CCPoint p)
