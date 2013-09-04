@@ -221,7 +221,7 @@
 }
 
 
-#pragma mark Ad Request Lifecycle Notifications
+#pragma mark Admob Request Lifecycle Notifications
 
 
 // Sent when an ad request loaded an ad.  This is a good opportunity to add this
