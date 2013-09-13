@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 
-#define kAppKey             @"2053366422"
-#define kAppSecret          @"9d402599d673bee313ccf5a702d31288"
+#define kAppKey             @"1398129440"
+#define kAppSecret          @"c9686249d21044ba39d25a05f475327e"
 #define kAppRedirectURI     @"https://api.weibo.com/oauth2/default.html"
 
 #ifndef kAppKey

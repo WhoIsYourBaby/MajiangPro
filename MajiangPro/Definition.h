@@ -25,6 +25,6 @@
 
 #define kStringPlayerStopNotiName "kStringPlayerStopNotiName"
 
-#define kShareContent @"智能麻将连连看，连连看新玩法，大家一起来挑战牛逼的人工智能吧~URL"
+#define kShareContent @"战斗麻将连连看，连连看新玩法，绝对高大上~~两个人能在同一台ipad上面互相对战？还可以挑战牛B的智能机器人？还可以玩单机？还在犹豫神马，赶紧下载吧~~~"
 
 #endif

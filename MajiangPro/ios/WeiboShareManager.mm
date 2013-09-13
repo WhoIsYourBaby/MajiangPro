@@ -20,13 +20,16 @@ static WeiboShareManager *manager = nil;
 {
     self = [super init];
     if (self) {
+        sinaweibo = nil;
     }
     return self;
 }
 
 - (void)loginSina
 {
-    sinaweibo = [[SinaWeibo alloc] initWithAppKey:kAppKey appSecret:kAppSecret appRedirectURI:kAppRedirectURI andDelegate:self];
+    if (sinaweibo == nil) {
+        sinaweibo = [[SinaWeibo alloc] initWithAppKey:kAppKey appSecret:kAppSecret appRedirectURI:kAppRedirectURI andDelegate:self];
+    }
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *sinaweiboInfo = [defaults objectForKey:@"SinaWeiboAuthData"];
     if ([sinaweiboInfo objectForKey:@"AccessTokenKey"] && [sinaweiboInfo objectForKey:@"ExpirationDateKey"] && [sinaweiboInfo objectForKey:@"UserIDKey"])
@@ -78,8 +81,6 @@ static WeiboShareManager *manager = nil;
 - (void)request:(SinaWeiboRequest *)request didFailWithError:(NSError *)error
 {
     [self removeAuthData];
-    [manager release];
-    manager = nil;
 }
 - (void)request:(SinaWeiboRequest *)request didFinishLoadingWithResult:(id)result
 {
