@@ -11,7 +11,7 @@
 
 #include <vector.h>
 
-#define OriginRoot ccp(7, 43)
+#define OriginRoot ccp(18, 33)
 
 #define OriginRootPad ccp(78, 52)
 

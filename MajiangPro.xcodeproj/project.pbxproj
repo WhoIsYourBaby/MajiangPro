@@ -837,9 +837,9 @@
 		B249014717D59C8200507080 /* disappear.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = disappear.mp3; path = Resources/disappear.mp3; sourceTree = "<group>"; };
 		B249014817D59C8200507080 /* gameover.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = gameover.mp3; path = Resources/gameover.mp3; sourceTree = "<group>"; };
 		B249014917D59C8200507080 /* select.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = select.mp3; path = Resources/select.mp3; sourceTree = "<group>"; };
-		B249015017D59DE300507080 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B249015217D59DEF00507080 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		B249015317D59ED300507080 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		B249015017D59DE300507080 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B249015217D59DEF00507080 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		B249015317D59ED300507080 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1806,19 +1806,16 @@
 		23064DEB17BDA86700F698D7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B28C0EA517E19F24003FF1C9 /* Phone */,
 				B249015417D5A21F00507080 /* Pad */,
 				2323770317BDAC9E0024492F /* ProgressLayer.cpp */,
 				2323770417BDAC9E0024492F /* ProgressLayer.h */,
 				232376DD17BDAC970024492F /* MaJiongSprite.cpp */,
 				232376DE17BDAC970024492F /* MaJiongSprite.h */,
-				232376DF17BDAC970024492F /* MenuScene.cpp */,
-				232376E017BDAC970024492F /* MenuScene.h */,
 				232376E317BDAC970024492F /* MyTree.cpp */,
 				232376E417BDAC970024492F /* MyTree.h */,
 				232376E517BDAC970024492F /* MyTreeNode.cpp */,
 				232376E617BDAC970024492F /* MyTreeNode.h */,
-				232376E817BDAC970024492F /* PlayDesktopLayer.cpp */,
-				232376E917BDAC970024492F /* PlayDesktopLayer.h */,
 				232376CA17BDAC8C0024492F /* Definition.h */,
 				232376CB17BDAC8C0024492F /* DesktopLayer.cpp */,
 				232376CC17BDAC8C0024492F /* DesktopLayer.h */,
@@ -1903,6 +1900,17 @@
 				232376D617BDAC8D0024492F /* GameOverSceneSG.h */,
 			);
 			name = Pad;
+			sourceTree = "<group>";
+		};
+		B28C0EA517E19F24003FF1C9 /* Phone */ = {
+			isa = PBXGroup;
+			children = (
+				232376E817BDAC970024492F /* PlayDesktopLayer.cpp */,
+				232376E917BDAC970024492F /* PlayDesktopLayer.h */,
+				232376DF17BDAC970024492F /* MenuScene.cpp */,
+				232376E017BDAC970024492F /* MenuScene.h */,
+			);
+			name = Phone;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

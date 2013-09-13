@@ -21,6 +21,7 @@ public:
     CREATE_FUNC(PlayDesktopLayer);
     
     virtual void initializeMajiong();
+    virtual void randMaJiang();
     //select majiong
     virtual void SelectMajiong(MaJiongSprite *mj);
 };

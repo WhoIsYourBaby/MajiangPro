@@ -97,7 +97,11 @@ bool MenuScene::init()
 #pragma mark - Menu CallBack
 
 void MenuScene::menuSingleCallback(CCObject* pSender)
-{}
+{
+    CCScene *desktop = DesktopScene::createWithCategary(DesktopLayerSG);
+    CCDirector::sharedDirector()->pushScene(CCTransitionFlipAngular::create(1, desktop));
+    SimpleAudioEngine::sharedEngine()->playEffect("select.mp3");
+}
 
 void MenuScene::menuPVPCallback(CCObject* pSender)
 {

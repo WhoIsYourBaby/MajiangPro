@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include "cocos2d.h"
-
+#include "DesktopScene.h"
 #include "DesktopLayer.h"
 
 class MenuScene : public cocos2d::CCLayer

@@ -52,6 +52,63 @@ void PlayDesktopLayer::initializeMajiong()
     randMaJiang();
 }
 
+void PlayDesktopLayer::randMaJiang()
+{
+    srand(time(NULL));
+    int count = MajiongsArray->count();
+    //产生一个0~72的随机序列数组
+    int randIndex[72] = {0};
+    int temp[72] = {0};
+    for (int i = 0; i < 72; i++) {
+        temp[i] = i;
+    }
+    
+    int l = 71;
+    for (int i = 0; i < 72; i ++) {
+        int t = rand() % (72 - i);
+        randIndex[i] = temp[t];
+        temp[t] = temp[l];
+        l --;
+    }
+    
+    /*/输出
+     printf("\n{");
+     for (int i = 0; i < 72; i ++) {
+     printf("%d, ", randIndex[i]);
+     }
+     printf("}\n");
+     //*/
+    
+    //打乱所有麻将位置
+    for (int i = 0; i < kMaxX; i ++) {
+        for (int j = 0; j < kMaxY; j ++) {
+            MaJiongSprite *majiong = (MaJiongSprite *)MajiongsArray->objectAtIndex(randIndex[i * kMaxY + j]);
+            int x = i+1;
+            int y = j+1;
+            majiong->setOriginCoord(x, y);
+            if (majiong->isVisible()) {
+                DesktopMap[x][y] = DesktopStateMaJiong;
+            } else {
+                DesktopMap[x][y] = DesktopStateNone;
+            }
+            MJWidth = majiong->boundingBox().size.width;
+            MJHeight = majiong->boundingBox().size.height;
+            CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+            if (fabs(winSize.width - 768) < 0.01) {
+                //ipad
+                majiong->setPosition(ccp(OriginRootPad.x + MJWidth * x, OriginRootPad.y + MJHeight * y));
+            } else {
+                majiong->setPosition(ccp(OriginRoot.x + MJWidth * x, OriginRoot.y + MJHeight * y));
+            }
+            if (getChildByTag(i * kMaxY + j) == NULL) {
+                this->addChild(majiong, 0, i * kMaxY + j);
+            }
+            count --;
+        }
+    }
+}
+
+
 void PlayDesktopLayer::SelectMajiong(MaJiongSprite *mj)
 {
     if (tempSelectMajiong && mj) {
