@@ -134,7 +134,7 @@
                                         //没有twitter账号...
                                         TWTweetComposeViewController *tweetViewController = [[TWTweetComposeViewController alloc] init];
                                         
-                                        [tweetViewController setInitialText:@"hello,this is a tweet from iphone by watsy0007."];
+                                        [tweetViewController setInitialText:kShareContent];
                                         [tweetViewController addImage:[UIImage imageNamed:@"Icon@2x.png"]];
                                         
                                         [tweetViewController setCompletionHandler:^(TWTweetComposeViewControllerResult result) {
