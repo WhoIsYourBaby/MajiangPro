@@ -21,14 +21,28 @@ PlayDesktopLayer::~PlayDesktopLayer()
 
 bool PlayDesktopLayer::init()
 {
-    if (!CCLayerColor::init()) {
+    if (!DesktopLayer::init()) {
         return false;
     }
     
-    this->initializeMajiong();
-    
     return true;
 }
+
+void PlayDesktopLayer::initializePlayer()
+{
+    //两人同玩一pad对战
+//    Player1 = PlayerLayer::create(ccc4(200, 200, 200, 100), 150, 60);
+//    Player1->setPosition(ccp(500,20));
+//    this->addChild(Player1);
+//    Player1->setScore((uint16_t)0);
+//    Player1->setCurrent(false);
+//    Player1->setUserName("Player1");
+//    Player1->addTargetAndSelector(this, callfuncO_selector(PlayDesktopLayer::handdleTurnPlayer));
+//    
+//    Player1->setCurrent(true);
+//    Player1->startProgress(10);
+}
+
 
 void PlayDesktopLayer::initializeMajiong()
 {

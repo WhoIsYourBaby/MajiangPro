@@ -40,7 +40,7 @@
 {
     [super viewDidAppear:animated];
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"noiad"]) {
-//        [self loadAdmobView];
+        [self loadAdmobView];
 //        [self loadIADView];
     }
 }
@@ -64,12 +64,13 @@
 - (void)loadAdmobView
 {
     // 在屏幕底部创建标准尺寸的视图。
+    CGSize adSize = (UIUserInterfaceIdiomPad == UI_USER_INTERFACE_IDIOM()) ? GAD_SIZE_468x60 : GAD_SIZE_320x50;
     admobView = [[GADBannerView alloc]
                    initWithFrame:CGRectMake(0.0,
                                             self.view.frame.size.height -
-                                            GAD_SIZE_468x60.height,
-                                            GAD_SIZE_468x60.width,
-                                            GAD_SIZE_468x60.height)];
+                                            adSize.height,
+                                            adSize.width,
+                                            adSize.height)];
 
     // 指定广告的“单元标识符”，也就是您的 AdMob 发布商 ID。
     admobView.adUnitID = MY_BANNER_UNIT_ID;

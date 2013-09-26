@@ -27,6 +27,8 @@ DesktopLayer::~DesktopLayer()
 bool DesktopLayer::init()
 {
     if (CCLayerColor::init()) {
+        Player1 = NULL;
+        Player2 = NULL;
         this->setColor(ccc3(100, 100, 100));
         tempSelectMajiong = NULL;
         MJHeight = 0.f;
@@ -41,7 +43,14 @@ bool DesktopLayer::init()
         btn->addTargetWithActionForControlEvents(this, cccontrol_selector(DesktopLayer::menuBackCallback), CCControlEventTouchDown);
         CCSize s = btn->getContentSize();
         CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-        btn->setPosition(s.width/2+20, winSize.height - s.height/2 - 20);
+        if (CCApplication::sharedApplication()->getTargetPlatform() == kTargetIpad) {
+            //ipad
+            btn->setPosition(s.width/2+20, winSize.height - s.height/2 - 20);
+        } else {
+            //iphone
+            btn->setPosition(s.width/2+5, winSize.height - s.height/2 - 20);
+        }
+        
         addChild(btn);
         
         MajiongsArray = CCArray::createWithCapacity(72);

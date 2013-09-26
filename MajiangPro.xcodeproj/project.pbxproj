@@ -283,6 +283,7 @@
 		B249014B17D59C8200507080 /* gameover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B249014817D59C8200507080 /* gameover.mp3 */; };
 		B249014C17D59C8200507080 /* select.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B249014917D59C8200507080 /* select.mp3 */; };
 		B249014F17D59DE300507080 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B249015117D59DE300507080 /* InfoPlist.strings */; };
+		B2F6452017F4098D0070C486 /* PlayerLayerSGPhone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2F6451E17F4098C0070C486 /* PlayerLayerSGPhone.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -840,6 +841,8 @@
 		B249015017D59DE300507080 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B249015217D59DEF00507080 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		B249015317D59ED300507080 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		B2F6451E17F4098C0070C486 /* PlayerLayerSGPhone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerLayerSGPhone.cpp; sourceTree = "<group>"; };
+		B2F6451F17F4098C0070C486 /* PlayerLayerSGPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerLayerSGPhone.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1808,17 +1811,19 @@
 			children = (
 				B28C0EA517E19F24003FF1C9 /* Phone */,
 				B249015417D5A21F00507080 /* Pad */,
-				2323770317BDAC9E0024492F /* ProgressLayer.cpp */,
-				2323770417BDAC9E0024492F /* ProgressLayer.h */,
+				232376CB17BDAC8C0024492F /* DesktopLayer.cpp */,
+				232376CC17BDAC8C0024492F /* DesktopLayer.h */,
+				232376F017BDAC970024492F /* PlayerLayer.cpp */,
+				232376F117BDAC970024492F /* PlayerLayer.h */,
 				232376DD17BDAC970024492F /* MaJiongSprite.cpp */,
 				232376DE17BDAC970024492F /* MaJiongSprite.h */,
 				232376E317BDAC970024492F /* MyTree.cpp */,
 				232376E417BDAC970024492F /* MyTree.h */,
+				2323770317BDAC9E0024492F /* ProgressLayer.cpp */,
+				2323770417BDAC9E0024492F /* ProgressLayer.h */,
 				232376E517BDAC970024492F /* MyTreeNode.cpp */,
 				232376E617BDAC970024492F /* MyTreeNode.h */,
 				232376CA17BDAC8C0024492F /* Definition.h */,
-				232376CB17BDAC8C0024492F /* DesktopLayer.cpp */,
-				232376CC17BDAC8C0024492F /* DesktopLayer.h */,
 				232376CD17BDAC8C0024492F /* DesktopScene.cpp */,
 				232376CE17BDAC8C0024492F /* DesktopScene.h */,
 				232376CF17BDAC8C0024492F /* GameLayerScene.cpp */,
@@ -1890,8 +1895,6 @@
 				232376F317BDAC970024492F /* PlayerLayerBot.h */,
 				232376F417BDAC970024492F /* PlayerLayerFTF.cpp */,
 				232376F517BDAC970024492F /* PlayerLayerFTF.h */,
-				232376F017BDAC970024492F /* PlayerLayer.cpp */,
-				232376F117BDAC970024492F /* PlayerLayer.h */,
 				232376D117BDAC8C0024492F /* GameOverScenePVE.cpp */,
 				232376D217BDAC8C0024492F /* GameOverScenePVE.h */,
 				232376D317BDAC8C0024492F /* GameOverScenePVP.cpp */,
@@ -1909,6 +1912,8 @@
 				232376E917BDAC970024492F /* PlayDesktopLayer.h */,
 				232376DF17BDAC970024492F /* MenuScene.cpp */,
 				232376E017BDAC970024492F /* MenuScene.h */,
+				B2F6451E17F4098C0070C486 /* PlayerLayerSGPhone.cpp */,
+				B2F6451F17F4098C0070C486 /* PlayerLayerSGPhone.h */,
 			);
 			name = Phone;
 			sourceTree = "<group>";
@@ -2232,6 +2237,7 @@
 				2323770117BDAC970024492F /* PlayerLayerBot.cpp in Sources */,
 				2323770217BDAC970024492F /* PlayerLayerFTF.cpp in Sources */,
 				2323770517BDAC9E0024492F /* ProgressLayer.cpp in Sources */,
+				B2F6452017F4098D0070C486 /* PlayerLayerSGPhone.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2336,7 +2342,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2366,7 +2372,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "A1B58911-8CB3-4D4D-8E9C-35974B4C4A21";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A1B58911-8CB3-4D4D-8E9C-35974B4C4A21";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

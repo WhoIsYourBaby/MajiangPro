@@ -85,7 +85,7 @@ bool MaJiongSprite::ccTouchBegan(CCTouch* touch, CCEvent* event)
     }
     
     PlayerLayer *py = SelectedObserver->getCurrentPlayer();
-    if (py->getCategary() == PlayerCategaryBot) {
+    if (py != NULL && py->getCategary() == PlayerCategaryBot) {
         return false;
     }
     bool ifContain = containsTouchLocation(touch);

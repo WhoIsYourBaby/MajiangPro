@@ -27,7 +27,7 @@ bool PlayDesktopSinglePad::init()
 
 void PlayDesktopSinglePad::initializePlayer()
 {
-    //两人同玩一pad对战
+    //单人游戏
     Player2 = NULL;
     
     Player1 = PlayerLayerFTF::create(ccc4(200, 200, 200, 100), 150, 60);
