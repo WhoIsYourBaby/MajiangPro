@@ -48,7 +48,7 @@ bool DesktopLayer::init()
             btn->setPosition(s.width/2+20, winSize.height - s.height/2 - 20);
         } else {
             //iphone
-            btn->setPosition(s.width/2+5, winSize.height - s.height/2 - 20);
+            btn->setPosition(s.width/2+2, winSize.height - s.height/2 - 20);
         }
         
         addChild(btn);
@@ -244,34 +244,9 @@ void DesktopLayer::draw()
 void DesktopLayer::MaJiongDrawLinkPath(vector<CCPoint> *arr)
 {
     tempDrawList = new vector<CCPoint>(*arr);
-    /*/
-    CCParticleSystemQuad *par = CCParticleSystemQuad::create("path.plist");
-    vector<CCPoint>::iterator it = arr->begin();
-    CCPoint p1 = *it;
-    par->setPosition(PositionOfCoord(p1));
-    this->addChild(par, 100);
-    it++;
-    CCPoint p2 = *it;
-    CCActionInterval *mov1 = CCMoveTo::create(0.5, PositionOfCoord(p2));
-    CCArray *seqArr = CCArray::createWithObject(mov1);
-    
-    if (arr->size() > 2) {
-        it ++;
-        CCPoint p3 = *it;
-        CCActionInterval *mov2 = (CCActionInterval *)CCMoveTo::create(0.5, PositionOfCoord(p3));
-        seqArr->addObject(mov2);
+    for (vector<CCPoint>::iterator it = tempDrawList->begin(); it < tempDrawList->end(); it ++) {
+        printf("%f, %f \n", (*it).x, (*it).y);
     }
-    if (arr->size() > 3) {
-        it ++;
-        CCPoint p4 = *it;
-        CCActionInterval *mov3 = (CCActionInterval *)CCMoveTo::create(0.5, PositionOfCoord(p4));
-        seqArr->addObject(mov3);
-    }
-    CCActionInterval *call = (CCActionInterval *)CCCallFuncND::create(this, callfuncND_selector(DesktopLayer::particleDispear), (void *)par);
-    seqArr->addObject(call);
-    CCActionInterval *seq = (CCActionInterval *)CCSequence::create(seqArr);
-    par->runAction(seq);
-    //*/
 }
 
 void DesktopLayer::particleDispear(void *par)

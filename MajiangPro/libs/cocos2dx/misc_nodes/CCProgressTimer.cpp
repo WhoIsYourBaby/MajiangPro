@@ -414,6 +414,10 @@ void CCProgressTimer::updateBar(void)
         return;
     }
     float alpha = m_fPercentage / 100.0f;
+    if(alpha != 0.f && alpha !=1.f)
+    {
+        alpha = 1.f-alpha;
+    }
     CCPoint alphaOffset = ccpMult(ccp(1.0f * (1.0f - m_tBarChangeRate.x) + alpha * m_tBarChangeRate.x, 1.0f * (1.0f - m_tBarChangeRate.y) + alpha * m_tBarChangeRate.y), 0.5f);
     CCPoint min = ccpSub(m_tMidpoint, alphaOffset);
     CCPoint max = ccpAdd(m_tMidpoint, alphaOffset);

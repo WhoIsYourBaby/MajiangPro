@@ -9,6 +9,10 @@
 #include "PlayDesktopLayer.h"
 #include "MaJiongSprite.h"
 #include "Definition.h"
+#include <dispatch/dispatch.h>
+
+#define kMaxSeconds 18.0
+#define kAddTimerPercentage 25
 
 using namespace cocos2d;
 
@@ -31,18 +35,30 @@ bool PlayDesktopLayer::init()
 void PlayDesktopLayer::initializePlayer()
 {
     //两人同玩一pad对战
-//    Player1 = PlayerLayer::create(ccc4(200, 200, 200, 100), 150, 60);
-//    Player1->setPosition(ccp(500,20));
-//    this->addChild(Player1);
-//    Player1->setScore((uint16_t)0);
-//    Player1->setCurrent(false);
-//    Player1->setUserName("Player1");
-//    Player1->addTargetAndSelector(this, callfuncO_selector(PlayDesktopLayer::handdleTurnPlayer));
-//    
-//    Player1->setCurrent(true);
-//    Player1->startProgress(10);
+    
+    progress = CCProgressTimer::create(CCSprite::create("progressLine.png"));
+    progress->setAnchorPoint(ccp(0, 0));
+    progress->setPercentage(0);
+    progress->setType( kCCProgressTimerTypeBar );
+    addChild(progress);
+    progress->setReverseDirection(false);
+    progress->setBarChangeRate(ccp(0, 1));
+    progress->setMidpoint(ccp(0, 0));
+    progress->setPosition(ccp(10, 85));
+    
+    CCProgressTo *pt = CCProgressTo::create(kMaxSeconds, 100);
+    CCCallFunc *func = CCCallFunc::create(this, callfunc_selector(PlayDesktopLayer::callFunProgress));
+    CCFiniteTimeAction *seq = CCSequence::create(pt,func,NULL);
+    
+    progress->runAction((CCActionInterval *)seq);
 }
 
+void PlayDesktopLayer::callFunProgress()
+{
+    //Game Over
+#error TODO -- go on
+    progress->setVisible(false);
+}
 
 void PlayDesktopLayer::initializeMajiong()
 {
@@ -125,17 +141,88 @@ void PlayDesktopLayer::randMaJiang()
 
 void PlayDesktopLayer::SelectMajiong(MaJiongSprite *mj)
 {
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("select.mp3");
     if (tempSelectMajiong && mj) {
-        if (tempSelectMajiong->isEqualTo(mj) && tempSelectMajiong != mj) {
-            //1 在这个条件里面判断两麻将是否能联通
+        if (tempSelectMajiong->isEqualTo(mj) && tempSelectMajiong != mj) {//1 在这个条件里面判断两麻将是否能联通
             //前后选择的两个麻将花色与大小相同
-            
-            //2 能联通则消除
-            
-            //3 消除后tempSelectMajiong = NULL;
+            vector<CCPoint> *linkPath = link(tempSelectMajiong->OringCoord, mj->OringCoord);
+            if (linkPath != NULL) {//如果有路径可以连通
+                CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("disappear.mp3");
+                //1绘制路径
+                MaJiongDrawLinkPath(linkPath);
+                //2消去两麻将
+                SetDesktopState(tempSelectMajiong->OringCoord, DesktopStateNone);
+                tempSelectMajiong->Disappear();
+                SetDesktopState(mj->OringCoord, DesktopStateNone);
+                mj->Disappear();
+                //3当前玩家加分
+                addTimeToProgress();
+                handdleTurnPlayer(NULL);
+                //4释放数组
+                tempSelectMajiong = NULL;
+                delete linkPath;
+                linkPath = NULL;
+            } else {
+                tempSelectMajiong->Diselect();
+                tempSelectMajiong = mj;
+            }
         } else {
             tempSelectMajiong->Diselect();
             tempSelectMajiong = mj;
         }
     } else tempSelectMajiong = mj;
 }
+
+CCPoint PlayDesktopLayer::PositionOfCoord(CCPoint p)
+{
+    CCPoint pr = ccp(OriginRoot.x + MJWidth * p.x, OriginRoot.y + MJHeight * p.y);
+    return pr;
+}
+
+void PlayDesktopLayer::addTimeToProgress()
+{
+    progress->stopAllActions();
+    int cuper = progress->getPercentage();
+    progress->setPercentage((cuper <= kAddTimerPercentage) ? (0) : (cuper - kAddTimerPercentage));
+    CCProgressTo *pt = CCProgressTo::create(kMaxSeconds * (100 - progress->getPercentage()) / 100, 100);
+    CCCallFunc *func = CCCallFunc::create(this, callfunc_selector(PlayDesktopLayer::callFunProgress));
+    CCFiniteTimeAction *seq = CCSequence::create(pt,func,NULL);
+    progress->runAction((CCActionInterval *)seq);
+}
+
+void PlayDesktopLayer::handdleTurnPlayer(PlayerLayer *player)
+{
+    if (tempSelectMajiong) {
+        tempSelectMajiong->Diselect();
+        tempSelectMajiong = NULL;
+    }
+    
+    bool hasVisible = false;
+    CCObject *obj = NULL;
+    CCARRAY_FOREACH(MajiongsArray, obj){
+        MaJiongSprite *mj = (MaJiongSprite *)obj;
+        if (mj->isVisible()) {
+            hasVisible = true;
+        }
+    }
+    if (!hasVisible) {   //还有显示的麻将直接返回,不执行后面的
+        //游戏正常结束逻辑
+        GameOver();
+        return ;
+    }
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        std::vector<CCPoint> *path = thereIsLink();
+        if (path == NULL) {
+            //调整麻将位置
+            printf("\nNeed to random MJ Position!");
+            dispatch_async(dispatch_get_main_queue(), ^{
+                randMaJiang();
+            });
+        } else {
+            std::vector<CCPoint>::iterator it = path->begin();
+            printf("\n(%f, %f)", (*it).x, (*it).y);
+        }
+    });
+}
+
+

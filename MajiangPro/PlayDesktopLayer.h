@@ -14,17 +14,24 @@
 #include "DesktopLayer.h"
 
 class PlayDesktopLayer : public DesktopLayer {
+    CCProgressTimer *progress;
 public:
     PlayDesktopLayer();
     virtual ~PlayDesktopLayer();
     virtual bool init();
     CREATE_FUNC(PlayDesktopLayer);
-    
+    virtual CCPoint PositionOfCoord(CCPoint p);
     virtual void initializeMajiong();
     virtual void randMaJiang();
     virtual void initializePlayer();
     //select majiong
     virtual void SelectMajiong(MaJiongSprite *mj);
+    
+    void callFunProgress();
+    
+    void addTimeToProgress();
+    
+    virtual void handdleTurnPlayer(PlayerLayer *player);
 };
 
 #endif /* defined(__MaJiong__PlayDesktopScene__) */
