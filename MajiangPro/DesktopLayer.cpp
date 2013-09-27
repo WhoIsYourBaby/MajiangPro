@@ -454,5 +454,4 @@ void DesktopLayer::onEnterTransitionDidFinish()
 }
 
 void DesktopLayer::GameOver()
-{
-}
+{}

@@ -283,6 +283,7 @@
 		B249014B17D59C8200507080 /* gameover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B249014817D59C8200507080 /* gameover.mp3 */; };
 		B249014C17D59C8200507080 /* select.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B249014917D59C8200507080 /* select.mp3 */; };
 		B249014F17D59DE300507080 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B249015117D59DE300507080 /* InfoPlist.strings */; };
+		B25E7E2317F566C700AE65FA /* AppController+ReviewAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = B25E7E2217F566C700AE65FA /* AppController+ReviewAlert.m */; };
 		B2F6452017F4098D0070C486 /* PlayerLayerSGPhone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2F6451E17F4098C0070C486 /* PlayerLayerSGPhone.cpp */; };
 /* End PBXBuildFile section */
 
@@ -841,6 +842,8 @@
 		B249015017D59DE300507080 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B249015217D59DEF00507080 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		B249015317D59ED300507080 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		B25E7E2117F566C700AE65FA /* AppController+ReviewAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AppController+ReviewAlert.h"; path = "ios/AppController+ReviewAlert.h"; sourceTree = "<group>"; };
+		B25E7E2217F566C700AE65FA /* AppController+ReviewAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AppController+ReviewAlert.m"; path = "ios/AppController+ReviewAlert.m"; sourceTree = "<group>"; };
 		B2F6451E17F4098C0070C486 /* PlayerLayerSGPhone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerLayerSGPhone.cpp; sourceTree = "<group>"; };
 		B2F6451F17F4098C0070C486 /* PlayerLayerSGPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerLayerSGPhone.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -999,6 +1002,8 @@
 				232376B417BDAC6D0024492F /* IOSHelper.m */,
 				23064B6817BDA86400F698D7 /* AppController.h */,
 				23064B6917BDA86400F698D7 /* AppController.mm */,
+				B25E7E2117F566C700AE65FA /* AppController+ReviewAlert.h */,
+				B25E7E2217F566C700AE65FA /* AppController+ReviewAlert.m */,
 				23064B6B17BDA86400F698D7 /* RootViewController.h */,
 				23064B6C17BDA86400F698D7 /* RootViewController.mm */,
 				23064B6E17BDA86400F698D7 /* main.m */,
@@ -2238,6 +2243,7 @@
 				2323770217BDAC970024492F /* PlayerLayerFTF.cpp in Sources */,
 				2323770517BDAC9E0024492F /* ProgressLayer.cpp in Sources */,
 				B2F6452017F4098D0070C486 /* PlayerLayerSGPhone.cpp in Sources */,
+				B25E7E2317F566C700AE65FA /* AppController+ReviewAlert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

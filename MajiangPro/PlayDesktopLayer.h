@@ -15,6 +15,7 @@
 
 class PlayDesktopLayer : public DesktopLayer {
     CCProgressTimer *progress;
+    int playerScore;
 public:
     PlayDesktopLayer();
     virtual ~PlayDesktopLayer();
@@ -32,6 +33,11 @@ public:
     void addTimeToProgress();
     
     virtual void handdleTurnPlayer(PlayerLayer *player);
+    
+    virtual void GameOver();
+    void RestartGame();
+    void setAllMJVisible();
+    void restartProgress();
 };
 
 #endif /* defined(__MaJiong__PlayDesktopScene__) */

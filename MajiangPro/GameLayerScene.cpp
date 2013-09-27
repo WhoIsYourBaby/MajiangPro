@@ -34,29 +34,53 @@ bool GameLayerScene::initWithScore(int scoreSG)
         back->setAnchorPoint(ccp(0,0));
         back->setPosition(ccp(0, 0));
         addChild(back);
-        
         PlayAgainCategary = DesktopLayerNone;
-        scorePlayer1 = scoreSG;
-        //init code  gameoverscene
-        CCLabelBMFont *label = CCLabelBMFont::create("Replay", "Fonts/bitmapFontTest4.fnt");
-        label->setAlignment(kCCTextAlignmentCenter);
-        CCScale9Sprite *bg = CCScale9Sprite::create("btnBack1.png");
-        CCControlButton *btn = CCControlButton::create(label, bg);
-        btn->setAdjustBackgroundImage(false);
-        btn->addTargetWithActionForControlEvents(this, cccontrol_selector(GameLayerScene::btnPlayAgainCallback), CCControlEventTouchDown);
-        CCSize s = CCDirector::sharedDirector()->getWinSize();
-        btn->setPosition(s.width/2, s.height/ 8 * 5);
-        addChild(btn);
         
-        //init code  gameoverscene
-        CCLabelBMFont *labelMenu = CCLabelBMFont::create("Menu", "Fonts/bitmapFontTest4.fnt");
-        labelMenu->setAlignment(kCCTextAlignmentCenter);
-        CCScale9Sprite *bgMenu = CCScale9Sprite::create("btnBack1.png");
-        CCControlButton *btnMenu = CCControlButton::create(labelMenu, bgMenu);
-        btnMenu->setAdjustBackgroundImage(false);
-        btnMenu->addTargetWithActionForControlEvents(this, cccontrol_selector(GameLayerScene::btnMenuCallback), CCControlEventTouchDown);
-        btnMenu->setPosition(s.width/2, s.height/ 8 * 4);
-        addChild(btnMenu);
+        if (CCApplication::sharedApplication()->getTargetPlatform() == kTargetIpad) {
+            scorePlayer1 = scoreSG;
+            //init code  gameoverscene
+            CCLabelBMFont *label = CCLabelBMFont::create("Replay", "Fonts/bitmapFontTest4.fnt");
+            label->setAlignment(kCCTextAlignmentCenter);
+            CCScale9Sprite *bg = CCScale9Sprite::create("btnBack1.png");
+            CCControlButton *btn = CCControlButton::create(label, bg);
+            btn->setAdjustBackgroundImage(false);
+            btn->addTargetWithActionForControlEvents(this, cccontrol_selector(GameLayerScene::btnPlayAgainCallback), CCControlEventTouchDown);
+            CCSize s = CCDirector::sharedDirector()->getWinSize();
+            btn->setPosition(s.width/2, s.height/ 8 * 5);
+            addChild(btn);
+            
+            //init code  gameoverscene
+            CCLabelBMFont *labelMenu = CCLabelBMFont::create("Menu", "Fonts/bitmapFontTest4.fnt");
+            labelMenu->setAlignment(kCCTextAlignmentCenter);
+            CCScale9Sprite *bgMenu = CCScale9Sprite::create("btnBack1.png");
+            CCControlButton *btnMenu = CCControlButton::create(labelMenu, bgMenu);
+            btnMenu->setAdjustBackgroundImage(false);
+            btnMenu->addTargetWithActionForControlEvents(this, cccontrol_selector(GameLayerScene::btnMenuCallback), CCControlEventTouchDown);
+            btnMenu->setPosition(s.width/2, s.height/ 8 * 4);
+            addChild(btnMenu);
+        } else {
+            scorePlayer1 = scoreSG;
+            //init code  gameoverscene
+            CCLabelBMFont *label = CCLabelBMFont::create("Replay", "Fonts/bitmapFontTest4.fnt");
+            label->setAlignment(kCCTextAlignmentCenter);
+            CCScale9Sprite *bg = CCScale9Sprite::create("btnBack1.png");
+            CCControlButton *btn = CCControlButton::create(label, bg);
+            btn->setAdjustBackgroundImage(false);
+            btn->addTargetWithActionForControlEvents(this, cccontrol_selector(GameLayerScene::btnPlayAgainCallback), CCControlEventTouchDown);
+            CCSize s = CCDirector::sharedDirector()->getWinSize();
+            btn->setPosition(s.width/2, s.height/ 4 * 1.9);
+            addChild(btn);
+            
+            //init code  gameoverscene
+            CCLabelBMFont *labelMenu = CCLabelBMFont::create("Menu", "Fonts/bitmapFontTest4.fnt");
+            labelMenu->setAlignment(kCCTextAlignmentCenter);
+            CCScale9Sprite *bgMenu = CCScale9Sprite::create("btnBack1.png");
+            CCControlButton *btnMenu = CCControlButton::create(labelMenu, bgMenu);
+            btnMenu->setAdjustBackgroundImage(false);
+            btnMenu->addTargetWithActionForControlEvents(this, cccontrol_selector(GameLayerScene::btnMenuCallback), CCControlEventTouchDown);
+            btnMenu->setPosition(s.width/2, s.height/ 4 * 1.4);
+            addChild(btnMenu);
+        }
         
         return true;
     }
@@ -71,30 +95,55 @@ bool GameLayerScene::initWithScore(int score1, int score2)
         back->setAnchorPoint(ccp(0,0));
         back->setPosition(ccp(0, 0));
         addChild(back);
-        
-        PlayAgainCategary = DesktopLayerNone;
-        scorePlayer1 = score1;
-        scorePlayer2 = score2;
-        //init code  gameoverscene
-        CCLabelBMFont *label = CCLabelBMFont::create("Replay", "Fonts/bitmapFontTest4.fnt");
-        label->setAlignment(kCCTextAlignmentCenter);
-        CCScale9Sprite *bg = CCScale9Sprite::create("btnBack1.png");
-        CCControlButton *btn = CCControlButton::create(label, bg);
-        btn->setAdjustBackgroundImage(false);
-        btn->addTargetWithActionForControlEvents(this, cccontrol_selector(GameLayerScene::btnPlayAgainCallback), CCControlEventTouchDown);
-        CCSize s = CCDirector::sharedDirector()->getWinSize();
-        btn->setPosition(s.width/2, s.height/ 8 * 5);
-        addChild(btn);
-        
-        //init code  gameoverscene
-        CCLabelBMFont *labelMenu = CCLabelBMFont::create("Menu", "Fonts/bitmapFontTest4.fnt");
-        labelMenu->setAlignment(kCCTextAlignmentCenter);
-        CCScale9Sprite *bgMenu = CCScale9Sprite::create("btnBack1.png");
-        CCControlButton *btnMenu = CCControlButton::create(labelMenu, bgMenu);
-        btnMenu->setAdjustBackgroundImage(false);
-        btnMenu->addTargetWithActionForControlEvents(this, cccontrol_selector(GameLayerScene::btnMenuCallback), CCControlEventTouchDown);
-        btnMenu->setPosition(s.width/2, s.height/ 8 * 4);
-        addChild(btnMenu);
+        if (CCApplication::sharedApplication()->getTargetPlatform() == kTargetIpad) {
+            PlayAgainCategary = DesktopLayerNone;
+            scorePlayer1 = score1;
+            scorePlayer2 = score2;
+            //init code  gameoverscene
+            CCLabelBMFont *label = CCLabelBMFont::create("Replay", "Fonts/bitmapFontTest4.fnt");
+            label->setAlignment(kCCTextAlignmentCenter);
+            CCScale9Sprite *bg = CCScale9Sprite::create("btnBack1.png");
+            CCControlButton *btn = CCControlButton::create(label, bg);
+            btn->setAdjustBackgroundImage(false);
+            btn->addTargetWithActionForControlEvents(this, cccontrol_selector(GameLayerScene::btnPlayAgainCallback), CCControlEventTouchDown);
+            CCSize s = CCDirector::sharedDirector()->getWinSize();
+            btn->setPosition(s.width/2, s.height/ 8 * 5);
+            addChild(btn);
+            
+            //init code  gameoverscene
+            CCLabelBMFont *labelMenu = CCLabelBMFont::create("Menu", "Fonts/bitmapFontTest4.fnt");
+            labelMenu->setAlignment(kCCTextAlignmentCenter);
+            CCScale9Sprite *bgMenu = CCScale9Sprite::create("btnBack1.png");
+            CCControlButton *btnMenu = CCControlButton::create(labelMenu, bgMenu);
+            btnMenu->setAdjustBackgroundImage(false);
+            btnMenu->addTargetWithActionForControlEvents(this, cccontrol_selector(GameLayerScene::btnMenuCallback), CCControlEventTouchDown);
+            btnMenu->setPosition(s.width/2, s.height/ 8 * 4);
+            addChild(btnMenu);
+        } else {
+            PlayAgainCategary = DesktopLayerNone;
+            scorePlayer1 = score1;
+            scorePlayer2 = score2;
+            //init code  gameoverscene
+            CCLabelBMFont *label = CCLabelBMFont::create("Replay", "Fonts/bitmapFontTest4.fnt");
+            label->setAlignment(kCCTextAlignmentCenter);
+            CCScale9Sprite *bg = CCScale9Sprite::create("btnBack1.png");
+            CCControlButton *btn = CCControlButton::create(label, bg);
+            btn->setAdjustBackgroundImage(false);
+            btn->addTargetWithActionForControlEvents(this, cccontrol_selector(GameLayerScene::btnPlayAgainCallback), CCControlEventTouchDown);
+            CCSize s = CCDirector::sharedDirector()->getWinSize();
+            btn->setPosition(s.width/2, s.height/ 4 * 1.8);
+            addChild(btn);
+            
+            //init code  gameoverscene
+            CCLabelBMFont *labelMenu = CCLabelBMFont::create("Menu", "Fonts/bitmapFontTest4.fnt");
+            labelMenu->setAlignment(kCCTextAlignmentCenter);
+            CCScale9Sprite *bgMenu = CCScale9Sprite::create("btnBack1.png");
+            CCControlButton *btnMenu = CCControlButton::create(labelMenu, bgMenu);
+            btnMenu->setAdjustBackgroundImage(false);
+            btnMenu->addTargetWithActionForControlEvents(this, cccontrol_selector(GameLayerScene::btnMenuCallback), CCControlEventTouchDown);
+            btnMenu->setPosition(s.width/2, s.height/ 4 * 1.3);
+            addChild(btnMenu);
+        }
         
         return true;
     }

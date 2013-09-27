@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import "EAGLView.h"
 #import "AppDelegate.h"
-
+#import "AppController+ReviewAlert.h"
 #import "RootViewController.h"
 
 @implementation AppController
@@ -75,6 +75,7 @@ static AppDelegate s_sharedApplication;
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
+    [self scheduleAlert];
     cocos2d::CCDirector::sharedDirector()->resume();
 }
 

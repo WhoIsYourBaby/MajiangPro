@@ -10,9 +10,10 @@
 #include "MaJiongSprite.h"
 #include "Definition.h"
 #include <dispatch/dispatch.h>
+#include "GameOverSceneSG.h"
 
-#define kMaxSeconds 18.0
-#define kAddTimerPercentage 25
+#define kMaxSeconds 20
+#define kAddTimerPercentage 15
 
 using namespace cocos2d;
 
@@ -20,7 +21,9 @@ PlayDesktopLayer::PlayDesktopLayer()
 {
 }
 PlayDesktopLayer::~PlayDesktopLayer()
-{}
+{
+    progress->stopAllActions();
+}
 
 
 bool PlayDesktopLayer::init()
@@ -35,29 +38,33 @@ bool PlayDesktopLayer::init()
 void PlayDesktopLayer::initializePlayer()
 {
     //两人同玩一pad对战
-    
+    playerScore = 0;
     progress = CCProgressTimer::create(CCSprite::create("progressLine.png"));
     progress->setAnchorPoint(ccp(0, 0));
-    progress->setPercentage(0);
     progress->setType( kCCProgressTimerTypeBar );
     addChild(progress);
     progress->setReverseDirection(false);
     progress->setBarChangeRate(ccp(0, 1));
     progress->setMidpoint(ccp(0, 0));
     progress->setPosition(ccp(10, 85));
-    
+    restartProgress();
+}
+
+void PlayDesktopLayer::restartProgress()
+{
+    progress->stopAllActions();
+    progress->setPercentage(0);
     CCProgressTo *pt = CCProgressTo::create(kMaxSeconds, 100);
     CCCallFunc *func = CCCallFunc::create(this, callfunc_selector(PlayDesktopLayer::callFunProgress));
     CCFiniteTimeAction *seq = CCSequence::create(pt,func,NULL);
-    
     progress->runAction((CCActionInterval *)seq);
 }
 
 void PlayDesktopLayer::callFunProgress()
 {
     //Game Over
-#error TODO -- go on
     progress->setVisible(false);
+    GameOver();
 }
 
 void PlayDesktopLayer::initializeMajiong()
@@ -71,6 +78,7 @@ void PlayDesktopLayer::initializeMajiong()
             MaJiongSprite *mj = MaJiongSprite::MaJiongWithFile(name);
             mj->AddSelectedObserver(this);
             MajiongsArray->addObject(mj);
+            
             
             sprintf(name, "3%d.png", i);
             MaJiongSprite *mj1 = MaJiongSprite::MaJiongWithFile(name);
@@ -156,6 +164,7 @@ void PlayDesktopLayer::SelectMajiong(MaJiongSprite *mj)
                 SetDesktopState(mj->OringCoord, DesktopStateNone);
                 mj->Disappear();
                 //3当前玩家加分
+                playerScore += mj->getMJScore();
                 addTimeToProgress();
                 handdleTurnPlayer(NULL);
                 //4释放数组
@@ -207,7 +216,7 @@ void PlayDesktopLayer::handdleTurnPlayer(PlayerLayer *player)
     }
     if (!hasVisible) {   //还有显示的麻将直接返回,不执行后面的
         //游戏正常结束逻辑
-        GameOver();
+        RestartGame();
         return ;
     }
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -225,4 +234,37 @@ void PlayDesktopLayer::handdleTurnPlayer(PlayerLayer *player)
     });
 }
 
+void PlayDesktopLayer::GameOver()
+{
+    GameLayerScene *gameover = GameOverSceneSG::createWithScore(playerScore);
+    gameover->setPlayAgainCategary(DesktopLayerSG);
+    CCDirector::sharedDirector()->replaceScene(gameover);
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("gameover.mp3");
+}
+
+
+void PlayDesktopLayer::RestartGame()
+{
+    //1 显示所有麻将
+    setAllMJVisible();
+    //2 打乱位置
+    randMaJiang();
+    //3 刷新时间进度条，游戏再开
+    restartProgress();
+}
+
+void PlayDesktopLayer::setAllMJVisible()
+{
+    for (int i = 0; i < MajiongsArray->count(); i ++) {
+        MaJiongSprite *mj = (MaJiongSprite *)MajiongsArray->objectAtIndex(i);
+        mj->setVisible(true);
+        mj->Diselect();
+    }
+    
+    for (int i = 1; i < kMatrixMaxX-1; i ++) {
+        for (int j = 1; j < kMatrixMaxY-1; j ++) {
+            DesktopMap[i][j] = DesktopStateMaJiong;
+        }
+    }
+}
 
