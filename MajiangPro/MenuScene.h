@@ -29,6 +29,7 @@ public:
     void menuSingleCallback(CCObject* pSender);
     void menuSinaShareCallback(CCObject* pSender);
     void menuTwitterShareCallback(CCObject* pSender);
+    void menuNoiadCallback(CCObject* pSender);
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(MenuScene);
 };

@@ -8,6 +8,8 @@
 
 #include "MenuScene.h"
 #include "SimpleAudioEngine.h"
+#import "IOSHelper.h"
+#import "WeiboShareManager.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
@@ -52,14 +54,15 @@ bool MenuScene::init()
     
     CCSize s = CCDirector::sharedDirector()->getWinSize();
     
-    CCLabelBMFont *label1 = CCLabelBMFont::create("VS Bot", "Fonts/bitmapFontTest4.fnt");
-    label1->setAlignment(kCCTextAlignmentCenter);
-    CCScale9Sprite *bg1 = CCScale9Sprite::create("btnBack1.png");
-    CCControlButton *btn1 = CCControlButton::create(label1, bg1);
-    btn1->setAdjustBackgroundImage(false);
-    btn1->addTargetWithActionForControlEvents(this, cccontrol_selector(MenuScene::menuPVECallback), CCControlEventTouchDown);
-    btn1->setPosition(s.width/2, s.height/ 4 * 2.8);
-    addChild(btn1);
+    //手机版不要vs bot
+//    CCLabelBMFont *label1 = CCLabelBMFont::create("VS Bot", "Fonts/bitmapFontTest4.fnt");
+//    label1->setAlignment(kCCTextAlignmentCenter);
+//    CCScale9Sprite *bg1 = CCScale9Sprite::create("btnBack1.png");
+//    CCControlButton *btn1 = CCControlButton::create(label1, bg1);
+//    btn1->setAdjustBackgroundImage(false);
+//    btn1->addTargetWithActionForControlEvents(this, cccontrol_selector(MenuScene::menuPVECallback), CCControlEventTouchDown);
+//    btn1->setPosition(s.width/2, s.height/ 4 * 2.8);
+//    addChild(btn1);
     
     CCLabelBMFont *labelSp = CCLabelBMFont::create("Single Player", "Fonts/bitmapFontTest4.fnt");
     labelSp->setAlignment(kCCTextAlignmentCenter);
@@ -68,7 +71,7 @@ bool MenuScene::init()
     CCControlButton *btnSp = CCControlButton::create(labelSp, bgSp);
     btnSp->setAdjustBackgroundImage(false);
     btnSp->addTargetWithActionForControlEvents(this, cccontrol_selector(MenuScene::menuSingleCallback), CCControlEventTouchDown);
-    btnSp->setPosition(s.width/2, s.height/ 4 * 2.1);
+    btnSp->setPosition(s.width/2, s.height/ 4 * 2.3);
     addChild(btnSp);
     
     
@@ -90,6 +93,17 @@ bool MenuScene::init()
     twitterBtn->addTargetWithActionForControlEvents(this, cccontrol_selector(MenuScene::menuTwitterShareCallback), CCControlEventTouchDown);
     twitterBtn->setPosition(s.width/2 + 80, s.height/ 4 * 1.4);
     addChild(twitterBtn);
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"noiad"]) {
+        CCLabelBMFont *label5 = CCLabelBMFont::create(" ", "Fonts/bitmapFontTest4.fnt");
+        label5->setAlignment(kCCTextAlignmentCenter);
+        CCScale9Sprite *bg5 = CCScale9Sprite::create("noiad.png");
+        CCControlButton *btniad = CCControlButton::create(label5, bg5);
+        btniad->setAdjustBackgroundImage(false);
+        btniad->addTargetWithActionForControlEvents(this, cccontrol_selector(MenuScene::menuNoiadCallback), CCControlEventTouchDown);
+        btniad->setPosition(s.width/2, s.height/ 4 * 1.4);
+        addChild(btniad);
+    }
     
     return true;
 }
@@ -116,10 +130,17 @@ void MenuScene::menuPVECallback(CCObject* pSender)
 
 void MenuScene::menuSinaShareCallback(CCObject *psender)
 {
+    [WeiboShareManager LoginAndShareSina];
 }
 
 
 void MenuScene::menuTwitterShareCallback(CCObject *psender)
 {
+    [WeiboShareManager LoginAndShareTwitter];
+}
+
+void MenuScene::menuNoiadCallback(CCObject* pSender)
+{
+    [IOSHelper buyNoIad];
 }
 

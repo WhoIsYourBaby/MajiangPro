@@ -227,7 +227,7 @@
 		232376DB17BDAC8D0024492F /* GameOverScenePVP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 232376D317BDAC8C0024492F /* GameOverScenePVP.cpp */; };
 		232376DC17BDAC8D0024492F /* GameOverSceneSG.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 232376D517BDAC8D0024492F /* GameOverSceneSG.cpp */; };
 		232376F617BDAC970024492F /* MaJiongSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 232376DD17BDAC970024492F /* MaJiongSprite.cpp */; };
-		232376F717BDAC970024492F /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 232376DF17BDAC970024492F /* MenuScene.cpp */; };
+		232376F717BDAC970024492F /* MenuScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 232376DF17BDAC970024492F /* MenuScene.mm */; };
 		232376F817BDAC970024492F /* MenuScenePad.mm in Sources */ = {isa = PBXBuildFile; fileRef = 232376E217BDAC970024492F /* MenuScenePad.mm */; };
 		232376F917BDAC970024492F /* MyTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 232376E317BDAC970024492F /* MyTree.cpp */; };
 		232376FA17BDAC970024492F /* MyTreeNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 232376E517BDAC970024492F /* MyTreeNode.cpp */; };
@@ -772,7 +772,7 @@
 		232376D617BDAC8D0024492F /* GameOverSceneSG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverSceneSG.h; sourceTree = "<group>"; };
 		232376DD17BDAC970024492F /* MaJiongSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MaJiongSprite.cpp; sourceTree = "<group>"; };
 		232376DE17BDAC970024492F /* MaJiongSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaJiongSprite.h; sourceTree = "<group>"; };
-		232376DF17BDAC970024492F /* MenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuScene.cpp; sourceTree = "<group>"; };
+		232376DF17BDAC970024492F /* MenuScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuScene.mm; sourceTree = "<group>"; };
 		232376E017BDAC970024492F /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
 		232376E117BDAC970024492F /* MenuScenePad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScenePad.h; sourceTree = "<group>"; };
 		232376E217BDAC970024492F /* MenuScenePad.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuScenePad.mm; sourceTree = "<group>"; };
@@ -1915,7 +1915,7 @@
 			children = (
 				232376E817BDAC970024492F /* PlayDesktopLayer.cpp */,
 				232376E917BDAC970024492F /* PlayDesktopLayer.h */,
-				232376DF17BDAC970024492F /* MenuScene.cpp */,
+				232376DF17BDAC970024492F /* MenuScene.mm */,
 				232376E017BDAC970024492F /* MenuScene.h */,
 				B2F6451E17F4098C0070C486 /* PlayerLayerSGPhone.cpp */,
 				B2F6451F17F4098C0070C486 /* PlayerLayerSGPhone.h */,
@@ -2230,7 +2230,7 @@
 				232376DB17BDAC8D0024492F /* GameOverScenePVP.cpp in Sources */,
 				232376DC17BDAC8D0024492F /* GameOverSceneSG.cpp in Sources */,
 				232376F617BDAC970024492F /* MaJiongSprite.cpp in Sources */,
-				232376F717BDAC970024492F /* MenuScene.cpp in Sources */,
+				232376F717BDAC970024492F /* MenuScene.mm in Sources */,
 				232376F817BDAC970024492F /* MenuScenePad.mm in Sources */,
 				232376F917BDAC970024492F /* MyTree.cpp in Sources */,
 				232376FA17BDAC970024492F /* MyTreeNode.cpp in Sources */,

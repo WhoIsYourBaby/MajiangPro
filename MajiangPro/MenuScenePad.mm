@@ -10,7 +10,7 @@
 #include "SimpleAudioEngine.h"
 #import "IOSHelper.h"
 #import "WeiboShareManager.h"
-#include "SimpleAudioEngine.h"
+
 using namespace cocos2d;
 using namespace CocosDenshion;
 using namespace cocos2d::extension;
