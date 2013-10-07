@@ -40,7 +40,7 @@
 {
     [super viewDidAppear:animated];
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"noiad"]) {
-//        [self loadAdmobView];
+        [self loadAdmobView];
 //        [self loadIADView];
     }
 }
