@@ -286,6 +286,8 @@
 		B249014B17D59C8200507080 /* gameover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B249014817D59C8200507080 /* gameover.mp3 */; };
 		B249014C17D59C8200507080 /* select.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B249014917D59C8200507080 /* select.mp3 */; };
 		B249014F17D59DE300507080 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B249015117D59DE300507080 /* InfoPlist.strings */; };
+		B24CAB9F1839F0AA00E92E33 /* GCHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B24CAB9E1839F0AA00E92E33 /* GCHelper.m */; };
+		B24CABA11839F0C500E92E33 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B24CABA01839F0C500E92E33 /* GameKit.framework */; };
 		B25E7E2317F566C700AE65FA /* AppController+ReviewAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = B25E7E2217F566C700AE65FA /* AppController+ReviewAlert.m */; };
 		B25E7E2617F57BA200AE65FA /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B25E7E2417F57BA100AE65FA /* Icon-72@2x.png */; };
 		B25E7E2717F57BA200AE65FA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B25E7E2517F57BA200AE65FA /* Icon.png */; };
@@ -854,6 +856,9 @@
 		B249015017D59DE300507080 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B249015217D59DEF00507080 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		B249015317D59ED300507080 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		B24CAB9D1839F0AA00E92E33 /* GCHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCHelper.h; path = ios/GCHelper.h; sourceTree = "<group>"; };
+		B24CAB9E1839F0AA00E92E33 /* GCHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCHelper.m; path = ios/GCHelper.m; sourceTree = "<group>"; };
+		B24CABA01839F0C500E92E33 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		B25E7E2117F566C700AE65FA /* AppController+ReviewAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AppController+ReviewAlert.h"; path = "ios/AppController+ReviewAlert.h"; sourceTree = "<group>"; };
 		B25E7E2217F566C700AE65FA /* AppController+ReviewAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AppController+ReviewAlert.m"; path = "ios/AppController+ReviewAlert.m"; sourceTree = "<group>"; };
 		B25E7E2417F57BA100AE65FA /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "Resources/Icon-72@2x.png"; sourceTree = "<group>"; };
@@ -871,6 +876,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B24CABA11839F0C500E92E33 /* GameKit.framework in Frameworks */,
 				23064E0A17BDAB6200F698D7 /* libGoogleAdMobAds.a in Frameworks */,
 				23064E0817BDAAFF00F698D7 /* Twitter.framework in Frameworks */,
 				23064E0617BDAAF600F698D7 /* Accounts.framework in Frameworks */,
@@ -916,6 +922,7 @@
 		23064B3D17BDA86400F698D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B24CABA01839F0C500E92E33 /* GameKit.framework */,
 				23064E0917BDAB6200F698D7 /* libGoogleAdMobAds.a */,
 				23064E0717BDAAFF00F698D7 /* Twitter.framework */,
 				23064E0517BDAAF600F698D7 /* Accounts.framework */,
@@ -1027,6 +1034,8 @@
 				232376C217BDAC6D0024492F /* WeiboShareManager.mm */,
 				232376B317BDAC6D0024492F /* IOSHelper.h */,
 				232376B417BDAC6D0024492F /* IOSHelper.m */,
+				B24CAB9D1839F0AA00E92E33 /* GCHelper.h */,
+				B24CAB9E1839F0AA00E92E33 /* GCHelper.m */,
 				23064B6817BDA86400F698D7 /* AppController.h */,
 				23064B6917BDA86400F698D7 /* AppController.mm */,
 				B25E7E2117F566C700AE65FA /* AppController+ReviewAlert.h */,
@@ -2280,6 +2289,7 @@
 				2323770517BDAC9E0024492F /* ProgressLayer.cpp in Sources */,
 				B2F6452017F4098D0070C486 /* PlayerLayerSGPhone.cpp in Sources */,
 				B25E7E2317F566C700AE65FA /* AppController+ReviewAlert.m in Sources */,
+				B24CAB9F1839F0AA00E92E33 /* GCHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
