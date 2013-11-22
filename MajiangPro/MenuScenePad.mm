@@ -10,6 +10,7 @@
 #include "SimpleAudioEngine.h"
 #import "IOSHelper.h"
 #import "WeiboShareManager.h"
+#import "AppController.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
@@ -48,14 +49,24 @@ bool MenuScenePad::init()
     this->addChild(pSprite, 0);
     
     //add 双人单击对战button
+    CCLabelBMFont *labelgc = CCLabelBMFont::create("VS Game Center", "Fonts/bitmapFontTest4.fnt");
+    labelgc->setAlignment(kCCTextAlignmentCenter);
+    CCScale9Sprite *bggc = CCScale9Sprite::create("btnBack1.png");
+    CCControlButton *btngc = CCControlButton::create(labelgc, bggc);
+    btngc->setAdjustBackgroundImage(false);
+    btngc->addTargetWithActionForControlEvents(this, cccontrol_selector(MenuScenePad::menuPVPGCCallback), CCControlEventTouchDown);
+    CCSize s = CCDirector::sharedDirector()->getWinSize();
+    btngc->setPosition(s.width/2, s.height/ 4 * 3.3);
+    addChild(btngc);
+    
+    //add 双人单击对战button
     CCLabelBMFont *label = CCLabelBMFont::create("VS Friend", "Fonts/bitmapFontTest4.fnt");
     label->setAlignment(kCCTextAlignmentCenter);
     CCScale9Sprite *bg = CCScale9Sprite::create("btnBack1.png");
     CCControlButton *btn = CCControlButton::create(label, bg);
     btn->setAdjustBackgroundImage(false);
     btn->addTargetWithActionForControlEvents(this, cccontrol_selector(MenuScenePad::menuPVPCallback), CCControlEventTouchDown);
-    CCSize s = CCDirector::sharedDirector()->getWinSize();
-    btn->setPosition(s.width/2, s.height/ 4 * 3);
+    btn->setPosition(s.width/2, s.height/ 4 * 2.7);
     addChild(btn);
     
     CCLabelBMFont *label1 = CCLabelBMFont::create("VS Bot", "Fonts/bitmapFontTest4.fnt");
@@ -64,7 +75,7 @@ bool MenuScenePad::init()
     CCControlButton *btn1 = CCControlButton::create(label1, bg1);
     btn1->setAdjustBackgroundImage(false);
     btn1->addTargetWithActionForControlEvents(this, cccontrol_selector(MenuScenePad::menuPVECallback), CCControlEventTouchDown);
-    btn1->setPosition(s.width/2, s.height/ 4 * 2.4);
+    btn1->setPosition(s.width/2, s.height/ 4 * 2.1);
     addChild(btn1);
     
     CCLabelBMFont *labelSp = CCLabelBMFont::create("Single Player", "Fonts/bitmapFontTest4.fnt");
@@ -73,7 +84,7 @@ bool MenuScenePad::init()
     CCControlButton *btnSp = CCControlButton::create(labelSp, bgSp);
     btnSp->setAdjustBackgroundImage(false);
     btnSp->addTargetWithActionForControlEvents(this, cccontrol_selector(MenuScenePad::menuSingleCallback), CCControlEventTouchDown);
-    btnSp->setPosition(s.width/2, s.height/ 4 * 1.8);
+    btnSp->setPosition(s.width/2, s.height/ 4 * 1.5);
     addChild(btnSp);
     
     
@@ -83,7 +94,7 @@ bool MenuScenePad::init()
     CCControlButton *sinaBtn = CCControlButton::create(label2, bg2);
     sinaBtn->setAdjustBackgroundImage(false);
     sinaBtn->addTargetWithActionForControlEvents(this, cccontrol_selector(MenuScenePad::menuSinaShareCallback), CCControlEventTouchDown);
-    sinaBtn->setPosition(s.width/2 - 80, s.height/ 4 * 1.4);
+    sinaBtn->setPosition(s.width/2 - 80, s.height/ 4 * 1.1);
     addChild(sinaBtn);
     
     
@@ -93,7 +104,7 @@ bool MenuScenePad::init()
     CCControlButton *twitterBtn = CCControlButton::create(label3, bg3);
     twitterBtn->setAdjustBackgroundImage(false);
     twitterBtn->addTargetWithActionForControlEvents(this, cccontrol_selector(MenuScenePad::menuTwitterShareCallback), CCControlEventTouchDown);
-    twitterBtn->setPosition(s.width/2 + 80, s.height/ 4 * 1.4);
+    twitterBtn->setPosition(s.width/2 + 80, s.height/ 4 * 1.1);
     addChild(twitterBtn);
     
     
@@ -105,7 +116,7 @@ bool MenuScenePad::init()
         CCControlButton *btniad = CCControlButton::create(label5, bg5);
         btniad->setAdjustBackgroundImage(false);
         btniad->addTargetWithActionForControlEvents(this, cccontrol_selector(MenuScenePad::menuNoiadCallback), CCControlEventTouchDown);
-        btniad->setPosition(s.width/2, s.height/ 4 * 1.1);
+        btniad->setPosition(s.width/2, s.height/ 4 * 0.8);
         addChild(btniad);
     }
     
@@ -124,6 +135,10 @@ void MenuScenePad::menuTwitterShareCallback(CCObject *pSender)
     [WeiboShareManager LoginAndShareTwitter];
 }
 
+void MenuScenePad::menuPVPGCCallback(CCObject* pSender)
+{
+    [[AppController shareInterface] findPlayer];
+}
 
 void MenuScenePad::menuPVPCallback(CCObject* pSender)
 {

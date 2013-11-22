@@ -13,6 +13,7 @@
 #import "AppController+ReviewAlert.h"
 #import "RootViewController.h"
 
+
 @implementation AppController
 
 @synthesize window;
@@ -22,10 +23,11 @@
 #pragma mark Application lifecycle
 
 // cocos2d application instance
+static AppController *interface = nil;
 static AppDelegate s_sharedApplication;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    interface = self;
     // Override point for customization after application launch.
     // Add the view controller's view to the window and display.
     window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
@@ -58,10 +60,20 @@ static AppDelegate s_sharedApplication;
 
     [[UIApplication sharedApplication] setStatusBarHidden: YES];
     cocos2d::CCApplication::sharedApplication()->run();
+    [[GCHelper shareInterface] authenticateLocalUser];
     
     return YES;
 }
 
++ (AppController *)shareInterface
+{
+    return interface;
+}
+
+- (void)findPlayer
+{
+    [[GCHelper shareInterface] findMatchWithViewController:self.viewController delegate:self];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     /*

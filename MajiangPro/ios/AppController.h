@@ -7,14 +7,19 @@
 //
 
 @class RootViewController;
+#import "GCHelper.h"
 
-@interface AppController : NSObject <UIAccelerometerDelegate, UIAlertViewDelegate, UITextFieldDelegate,UIApplicationDelegate> {
+@interface AppController : NSObject <UIAccelerometerDelegate, UIAlertViewDelegate, UITextFieldDelegate,UIApplicationDelegate, GCHelperDelegate> {
     UIWindow *window;
     RootViewController    *viewController;
 }
 
 @property (nonatomic, retain) UIWindow *window;
 @property (nonatomic, retain) RootViewController *viewController;
+
++ (AppController *)shareInterface;
+
+- (void)findPlayer;
 
 @end
 

@@ -10,6 +10,8 @@
 #include "SimpleAudioEngine.h"
 #import "IOSHelper.h"
 #import "WeiboShareManager.h"
+#import "GCHelper.h"
+#import "AppController.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
@@ -54,24 +56,23 @@ bool MenuScene::init()
     
     CCSize s = CCDirector::sharedDirector()->getWinSize();
     
-    //手机版不要vs bot
-//    CCLabelBMFont *label1 = CCLabelBMFont::create("VS Bot", "Fonts/bitmapFontTest4.fnt");
-//    label1->setAlignment(kCCTextAlignmentCenter);
-//    CCScale9Sprite *bg1 = CCScale9Sprite::create("btnBack1.png");
-//    CCControlButton *btn1 = CCControlButton::create(label1, bg1);
-//    btn1->setAdjustBackgroundImage(false);
-//    btn1->addTargetWithActionForControlEvents(this, cccontrol_selector(MenuScene::menuPVECallback), CCControlEventTouchDown);
-//    btn1->setPosition(s.width/2, s.height/ 4 * 2.8);
-//    addChild(btn1);
+    //联机对战
+    CCLabelBMFont *label1 = CCLabelBMFont::create("VS Game Center", "Fonts/bitmapFontTest4.fnt");
+    label1->setAlignment(kCCTextAlignmentCenter);
+    CCScale9Sprite *bg1 = CCScale9Sprite::create("btnBack1.png");
+    CCControlButton *btn1 = CCControlButton::create(label1, bg1);
+    btn1->setAdjustBackgroundImage(false);
+    btn1->addTargetWithActionForControlEvents(this, cccontrol_selector(MenuScene::menuPVPCallback), CCControlEventTouchDown);
+    btn1->setPosition(s.width/2, s.height/ 4 * 2.8);
+    addChild(btn1);
     
     CCLabelBMFont *labelSp = CCLabelBMFont::create("Single Player", "Fonts/bitmapFontTest4.fnt");
     labelSp->setAlignment(kCCTextAlignmentCenter);
-//    labelSp->setScale(0.5);
     CCScale9Sprite *bgSp = CCScale9Sprite::create("btnBack1.png");
     CCControlButton *btnSp = CCControlButton::create(labelSp, bgSp);
     btnSp->setAdjustBackgroundImage(false);
     btnSp->addTargetWithActionForControlEvents(this, cccontrol_selector(MenuScene::menuSingleCallback), CCControlEventTouchDown);
-    btnSp->setPosition(s.width/2, s.height/ 4 * 2.3);
+    btnSp->setPosition(s.width/2, s.height/ 4 * 2.15);
     addChild(btnSp);
     
     
@@ -119,8 +120,7 @@ void MenuScene::menuSingleCallback(CCObject* pSender)
 
 void MenuScene::menuPVPCallback(CCObject* pSender)
 {
-    CCScene *desktop = CCScene::create();
-    CCDirector::sharedDirector()->pushScene(CCTransitionFlipAngular::create(1, desktop));
+    [[AppController shareInterface] findPlayer];
 }
 
 void MenuScene::menuPVECallback(CCObject* pSender)

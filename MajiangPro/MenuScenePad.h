@@ -26,6 +26,7 @@ public:
     static cocos2d::CCScene* scene();
     
     // a selector callback
+    void menuPVPGCCallback(CCObject* pSender);
     void menuPVPCallback(CCObject* pSender);
     void menuPVECallback(CCObject* pSender);
     void menuSingleCallback(CCObject* pSender);
@@ -33,6 +34,7 @@ public:
     void menuSinaShareCallback(CCObject* pSender);
     void menuTwitterShareCallback(CCObject* pSender);
     void menuNoiadCallback(CCObject* pSender);
+    
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(MenuScenePad);
 };
